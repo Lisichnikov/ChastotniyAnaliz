@@ -7,16 +7,19 @@
         // создаю массив и лист для ввода новых значений
 
         for (Int32 i = Int32.Parse(Console.ReadLine()); i > 0; i--)
-        Virables.Add(Int16.Parse(Console.ReadLine()));
+            Virables.Add(Int16.Parse(Console.ReadLine()));
         // ввод новых значений
-        
-        foreach (var Line in from g in Virables group g by g into ng orderby ng.Key select new
-            {
-                Count = ng.Count(),
-                Key = ng.Key
-            })
-        //подсчет голосов
+
+        foreach (var Line in from g in Virables
+                             group g by g into ng
+                             orderby ng.Key
+                             select new
+                             {
+                                 Count = ng.Count(),
+                                 Key = ng.Key
+                             })
+            //подсчет голосов
             Console.WriteLine("Команда {0} набрала: {1}", Line.Key, Line.Count);
-            Console.ReadKey();
+        Console.ReadKey();
     }
 }
